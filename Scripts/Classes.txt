@@ -1,0 +1,181 @@
+classe VEÍCULO
+	atributos:
+		VeículoNúmero
+		VelocidadeAtual
+		VelocidadeMáxima
+		Proprietário
+	métodos:
+		AumentarVelocidade
+		DiminuirVelocidade
+		Visualizar
+	
+classe CAMINHÃO
+	especialização de: VEÍCULO
+	atributos:
+		Carga
+		Proprietário
+	métodos:
+		Carregar
+		Descarregar
+		Visualizar
+		
+
+class VEÍCULO {
+	public int VeículoNúmero;
+	public int VelocidadeAtual;
+	public int VelocidadeMaxima;
+	public String Proprietário;
+
+	public AumentarVelocidade();
+	public DiminuirVelocidade();
+	public Visualizar();
+}
+
+class CAMINHÃO extends VEÍCULO {
+	public int Carga;
+	public String Proprietário;
+	public void Carregar();
+	public void Descarregar();
+	public void Visualizar();
+}
+
+class VEÍCULO {
+	constructor () {
+		this.VeículoNúmero;
+		this.VelocidadeAtual;
+		this.VelocidadeMáxima;
+		this.Proprietário;
+	}
+
+	AumentarVelocidade();
+	DiminuirVelocidade();
+	Visualizar();
+}
+
+class CAMINHÃO extends VEÍCULO 
+	constructor() {
+		super();
+		this.Carga;
+		this.Proprietário;
+	}
+
+	Carregar();
+	Descarregar();
+	Visualizar();
+}
+
+
+var Classe1 = function(nl, n2, n3) {
+	this.atl = nl;
+	this.at2 = n2;
+	this.at3 = n3;
+}
+
+Classel.prototype.add1 = function() {
+	return (this.atl + this.at2);
+}
+
+Classel.prototype.add2 = function() {
+	return (this.at2 + this.at3);
+}
+
+var jd = new Classel (l, 3, 5);
+console.log(jd.addl());
+
+
+
+class Classe1 {
+	constructor(nl, n2, n3) {
+		this.atrl = nl;
+		this.atr2 = n2;
+		this.atr3 = n3;
+	}
+	ml () {
+		return this.atrl * this.atr2;
+	}
+	m2 () {
+		return this.atr3 - this.atr2;
+	}
+}
+
+var objl = new Classe1(2, 2, 4);
+console.log(objl.m2());
+
+
+
+
+
+var firstClass = function () {}
+	firstClass.prototype.greetings = function greetings(a) {
+	console.log(a);
+};
+
+var secondClass = function() {}
+secondClass.prototype = Object.create(firstClass.prototype);
+
+var obj = new secondClass();
+obj.greetings(19);
+
+
+
+class firstClass {
+	greetings(a) {
+		console.log(a);
+	}
+};
+
+class secondClass extends firstClass {}
+
+var obj = new secondClass();
+obj.greetings(18);
+
+
+
+var Classl = function() {
+	this._atrl = 2;
+	this._atr2 = 0;
+};
+
+Classl.prototype = {
+	set atrl(a) {
+		this.atrl = a;
+	},
+	get atrl() {
+		return this._atrl;
+	},
+	set atr2 ( b) {
+		this.atr2 = b;
+	} ,
+	get atr2() {
+		return this._atr2;
+	}
+};
+
+var obj= new Classl();
+obj.atrl = 4;
+console.log(obj.atrl);
+
+
+
+class Classl {
+	constructor() {
+		this._atrl = 0;
+		this._atr2 = 0;
+	}
+	set atr1(a) {
+		this._atrl = a;
+	}
+	set atr2(a) {
+		this._atr2 = a;
+	}
+	get atr1() {
+		return this.atrl;
+	}
+	get atr2() {
+		return this.atr2;
+	}
+}
+	
+var obj = new Classl;
+obj.a = 4;
+console.log(obj.a);

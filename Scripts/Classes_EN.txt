@@ -1,0 +1,243 @@
+class VEHICLE
+	attributes:
+		VehicleNumber
+		CurrentSpeed
+		MaximumSpeed
+		Owner   	methods:
+		IncreaseSpeed
+		DecreaseSpeed
+		Display
+
+class TRUCK
+	specialization of: VEHICLE
+	attributes:
+		Cargo
+		Owner
+	methods:
+		Load
+		Unload
+		Display
+		
+}	}
+	
+
+class VEHICLE {
+	int VehicleNumber;
+	int	CurrentSpeed;
+	int	MaximumSpeed;
+	string Owner;
+	
+	public:
+		void IncreaseSpeed();
+		void DecreaseSpeed();
+		void Display();
+}
+
+class TRUCK: public VEHICLE {
+	int Cargo;
+	string Owner;
+	
+	public:
+		void Load();
+		void Unload();
+		void Display();
+}
+
+
+
+class VEHICLE {
+	public int VehicleNumber;
+	public int CurrentSpeed;
+	public int MaximumSpeed;
+	public String Owner;
+
+	public IncreaseSpeed();
+	public DecreaseSpeed();
+	public Display();
+}
+
+class TRUCK extends VEHICLE {
+	public int Cargo;
+	public String Owner;
+	
+	public Load();
+	public Unload();
+	public Display();
+}
+
+
+
+var VEHICLE = function() {
+	this.VehicleNumber;
+	this.CurrentSpeed;
+	this.MaximumSpeed;
+	this.Owner;
+}
+
+VEHICLE.prototype.IncreaseSpeed_
+	= function();
+	
+VEHICLE.prototype.DecreaseSpeed_
+	= function();
+
+VEHICLE.prototype.Display_
+	= function();
+
+var TRUCK = function() {
+	this.Cargo;
+	this.Owner;
+}
+
+TRUCK.prototype = Object.create_
+	(VEHICLE.prototype);
+
+TRUCK.prototype.Load_
+	= function();
+
+TRUCK.prototype.Unload_
+	= function();
+
+TRUCK. prototype.Display_
+	= function();
+
+
+class VEHICLE {
+	constructor() {
+		this.VehicleNumber;
+		this.CurrentSpeed;
+		this.MaximumSpeed;
+		this.Owner;
+	}
+	
+	IncreaseSpeed();
+	DecreaseSpeed();
+	Display();
+}
+
+class TRUCK extends VEHICLE {
+	constructor() {
+		super();
+		this.Cargo;
+		this.Owner;
+	}
+	
+	Load();
+	Unload();
+	Display();
+}
+	
+	
+var Class1 = function(nl, n2, n3) {
+	this.atl = nl;
+	this.at2 = n2;
+	this.at3 = n3;
+}
+
+Classl.prototype.add1 = function() {
+	return (this.atl + this.at2);
+}
+
+Classl.prototype.add2 = function() {
+	return (this.at2 + this.at3);
+}
+
+var jd = new Class1(l, 3, 5);
+console.log(jd.addl());
+
+
+
+class Class1 {
+	constructor(nl, n2, n3) {
+		this.atrl = nl;
+		this.atr2 = n2;
+		this.atr3 = n3;
+	}
+	ml () {
+		return this.atrl * this.atr2;
+	}
+	m2 () {
+		return this.atr3 - this.atr2;
+	}
+}
+
+var objl = new Class1(2, 2, 4);
+console.log(objl.m2());
+
+
+
+
+
+var firstClass = function () {}
+	firstClass.prototype.greetings = function greetings(a) {
+	console.log(a);
+};
+
+var secondClass = function() {}
+secondClass.prototype = Object.create(firstClass.prototype);
+
+var obj = new secondClass();
+obj.greetings(19);
+
+
+
+class firstClass {
+	greetings(a) {
+		console.log(a);
+	}
+};
+
+class secondClass extends firstClass {}
+
+var obj = new secondClass();
+obj.greetings(18);
+
+
+
+var Classl = function() {
+	this._atrl = 2;
+	this._atr2 = 0;
+};
+
+Classl.prototype = {
+	set atrl(a) {
+		this.atrl = a;
+	},
+	get atrl() {
+		return this._atrl;
+	},
+	set atr2 ( b) {
+		this.atr2 = b;
+	} ,
+	get atr2() {
+		return this._atr2;
+	}
+};
+
+var obj= new Classl();
+obj.atrl = 4;
+console.log(obj.atrl);
+
+
+
+class Classl {
+	constructor() {
+		this._atrl = 0;
+		this._atr2 = 0;
+	}
+	set atr1(a) {
+		this._atrl = a;
+	}
+	set atr2(a) {
+		this._atr2 = a;
+	}
+	get atr1() {
+		return this.atrl;
+	}
+	get atr2() {
+		return this.atr2;
+	}
+}
+	
+var obj = new Classl;
+obj.a = 4;
+console.log(obj.a);

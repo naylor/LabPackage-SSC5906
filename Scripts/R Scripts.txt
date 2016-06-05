@@ -1,0 +1,33 @@
+install.packages('RMySQL')
+install.packages('DBI')
+install.packages('ggplot2')
+
+install.packages('geom_boxplot')
+
+library(ggplot2)
+library("DBI");
+library("RMySQL");
+con <- dbConnect(MySQL(), user="root", password="123456", dbname="eseusp", host="localhost");
+
+
+q <- "select  answers.typeEC, case when answers.testnumber = 'C1' then 'Ex 1' when answers.testnumber = 'C2' then 'Ex 2' when answers.testnumber = 'C3' then 'Ex 3' end as testnumber, avg(((minute(endtime)*60) + second(endtime)) - ((minute(starttime)*60) + second(starttime))) as segundos   from answers   inner join results on results.testnumber = answers.testnumber and results.typeEC = answers.typeEC  where testid not in ( 3, 42, 4, 23, 27, 32, 31, 13 ) and results.typeEC = 'ES5' and answers.testnumber = 'C1'  group by answers.testid, answers.testnumber, answers.typeEC ORDER BY answers.testid"
+
+ex <- dbGetQuery(con, q)
+
+r <- ggplot(ex, aes(x=testnumber, y=segundos)) + geom_boxplot(aes(fill=typeEC)) + ylab("Tempo em segundos") + xlab("Exercícios") + guides(fill=guide_legend(title="Versão"))
+
+ggsave(r, file="tempo.pdf", scale=2)
+
+q <- "select 
+SUM(case      when answervalue = results.correctanswer then '1'     when answervalue <> results.correctanswer then '0'  end) as countIscorrect
+    from answers   inner join results on results.testnumber = answers.testnumber and results.typeEC = answers.typeEC  where testid not in ( 3, 42, 4, 23, 27, 32, 31, 13 ) and results.typeEC = 'ES6'  group by answers.testid, answers.typeEC ORDER BY answers.testid"
+
+ex <- dbGetQuery(con, q)
+
+q <- "(select 'ES5' as tipo, expes5 as tempo from tests where id not in ( 3, 42, 4, 23, 27, 32, 31, 13, 43 )) UNION ALL (select 'ES6'as tipo, expes6 as tempo from tests where id not in ( 3, 42, 4, 23, 27, 32, 31, 13 , 43) ) UNION ALL (select 'OO'as tipo, expoo as tempo from tests where id not in ( 3, 42, 4, 23, 27, 32, 31, 13 , 43) );";
+
+q <- "select semester from tests where id not in ( 3, 42, 4, 23, 27, 32, 31, 13, 43 );"
+
+r <- ggplot(ex, aes(x=testnumber, y=segundos)) + geom_boxplot(aes(fill=semester)) + ylab("Tempo em segundos") + xlab("Exercícios") + guides(fill=guide_legend(title="Versão"))
+
+ggsave(r, file="conhecimento.pdf", scale=2)
